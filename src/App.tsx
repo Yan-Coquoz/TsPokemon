@@ -1,7 +1,7 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 
-const App: React.FC = () => {
-  const name: String = "React";
+const App: FunctionComponent = () => {
+  const name: String = "Yan";
 
   return <h1>Hello, {name} !</h1>;
 };
