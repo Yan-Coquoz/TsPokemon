@@ -1,0 +1,11 @@
+.Card {
+  border: 2px solid #a2a5a2b4;
+  margin: 0.5rem;
+  padding: 1rem;
+  display: flex;
+  width: 50%;
+  border-radius: 15px;
+}
+.Card div p:nth-child(1) {
+  font-weight: bold;
+}
