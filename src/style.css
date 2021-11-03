@@ -9,8 +9,7 @@ ul {
   justify-content: center;
 }
 .Card {
-  width: 45%;
-  max-width: 350px;
+  width: 350px;
   display: flex;
   margin: 1rem;
   flex-direction: row;
