@@ -4,9 +4,9 @@ import "./style.css";
 
 const App: FunctionComponent = () => {
   return (
-    <>
+    <div>
       <PokemonList />
-    </>
+    </div>
   );
 };
 

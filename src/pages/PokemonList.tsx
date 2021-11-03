@@ -12,14 +12,16 @@ const PokemonList: FunctionComponent = () => {
   return (
     <div>
       <h1>Pokémons</h1>
-      <p>
-        <span>Il y a {pokemons.length} pokemons dans mon tableau !</span>{" "}
-      </p>
-      <ul>
-        {pokemons.map((pokemon) => (
-          <PokemonCard key={pokemon.id} pokemon={pokemon} />
-        ))}
-      </ul>
+      <div id="SubTitle">
+        <p>Il y a {pokemons.length} pokemons dans mon tableau !</p>
+      </div>
+      <div id="Block_list">
+        <ul>
+          {pokemons.map((pokemon) => (
+            <PokemonCard key={pokemon.id} pokemon={pokemon} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,13 @@
+body {
+  background: #f7861c;
+  font-family: "Irish Grover", cursive;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+}
+
 ul {
   box-sizing: border-box;
   width: 85%;
@@ -7,6 +17,11 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background: linear-gradient(
+    225deg,
+    rgba(253, 29, 29, 1) 0%,
+    rgba(252, 176, 69, 1) 100%
+  );
 }
 .Card {
   width: 350px;
@@ -27,6 +42,13 @@ ul {
 }
 p {
   color: bisque;
+}
+#SubTitle {
+  text-align: center;
+}
+#SubTitle p {
+  color: black;
+  font-size: 2em;
 }
 p span {
   color: black;
