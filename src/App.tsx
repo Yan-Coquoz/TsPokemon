@@ -14,13 +14,16 @@ const App: FunctionComponent = () => {
   return (
     <>
       <h1>Pokémons</h1>
-      <p>il y a {pokemons.length} pokemons dans mon tableau !</p>
+      <p>
+        <span>Il y a {pokemons.length} pokemons dans mon tableau !</span>{" "}
+      </p>
       <ul>
         {pokemons.map((pokemon) => (
           <li key={pokemon.id} className="Card">
             <img src={pokemon.picture} alt={pokemon.name} />
             <div>
               <p>{pokemon.name}</p> <p>{pokemon.hp} HP</p>
+              <p>{pokemon.created.toDateString()}</p>
               <p>{pokemon.cp} CP</p>
               <p>{pokemon.types.map((type) => type + " ")}</p>
             </div>
