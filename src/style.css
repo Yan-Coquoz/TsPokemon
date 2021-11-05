@@ -17,6 +17,8 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
+  padding: 1rem;
   background: linear-gradient(
     225deg,
     rgba(253, 29, 29, 1) 0%,
@@ -24,9 +26,9 @@ ul {
   );
 }
 .Card {
+  margin: 1rem;
   width: 350px;
   display: flex;
-  margin: 1rem;
   flex-direction: row;
   background-color: brown;
   border: 2px solid #a2a5a2b4;
@@ -39,6 +41,11 @@ ul {
 }
 .Card:hover {
   box-shadow: inset 3px 3px teal, 3px 3px teal;
+  cursor: pointer;
+}
+.Card:active {
+  position: relative;
+  top: 1px;
 }
 p {
   color: bisque;
