@@ -4,8 +4,8 @@ export const POKEMONS: Pokemon[] = [
   {
     id: 1,
     name: "Bulbizarre",
-    hp: 25,
-    cp: 5,
+    hp: 25, // point de vie
+    cp: 5, //dégats
     picture:
       "https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png",
     types: ["Plante", "Poison"],
