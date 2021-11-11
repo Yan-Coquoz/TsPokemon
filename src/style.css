@@ -28,6 +28,7 @@ ul {
 .Card {
   margin: 1rem;
   width: 350px;
+  height: 255px;
   display: flex;
   flex-direction: row;
   background-color: brown;
