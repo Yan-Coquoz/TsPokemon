@@ -44,6 +44,31 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon }) => {
   const hasType = (type: string): boolean => {
     return form.types.value.includes(type);
   };
+  const handleInputChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    const fieldName: string = evt.target.name;
+    const fieldValue: string = evt.target.value;
+    const newField: Field = { [fieldName]: { value: fieldValue } };
+    setFrom({ ...form, ...newField });
+  };
+  const selectType = (
+    type: string,
+    evt: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
+    const checked = evt.target.checked;
+    let newField: Field;
+    if (checked) {
+      // concat : permet de fusionner 2 tableaux
+      const newTypes: string[] = form.types.value.concat([type]);
+      newField = { value: newTypes };
+    } else {
+      // filter : créer un nouveau tableau, ici sans la valeur décochée
+      const newTypes: string[] = form.types.value.filter(
+        (currentType: string) => currentType !== type,
+      );
+      newField = { value: newTypes };
+    }
+    setFrom({ ...form, ...{ types: newField } });
+  };
 
   return (
     <form>
@@ -64,9 +89,11 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon }) => {
                   <label htmlFor="name">Nom</label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     className="form-control"
                     value={form.name.value}
+                    onChange={handleInputChange}
                   ></input>
                 </div>
                 {/* Pokemon hp */}
@@ -74,8 +101,10 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon }) => {
                   <label htmlFor="hp">Point de vie</label>
                   <input
                     id="hp"
+                    name="hp"
                     type="number"
                     className="form-control"
+                    onChange={handleInputChange}
                     value={form.hp.value}
                   ></input>
                 </div>
@@ -84,8 +113,10 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon }) => {
                   <label htmlFor="cp">Dégâts</label>
                   <input
                     id="cp"
+                    name="cp"
                     type="number"
                     className="form-control"
+                    onChange={handleInputChange}
                     value={form.cp.value}
                   ></input>
                 </div>
@@ -101,6 +132,7 @@ const PokemonForm: FunctionComponent<Props> = ({ pokemon }) => {
                           className="filled-in"
                           value={type}
                           checked={hasType(type)}
+                          onChange={(e) => selectType(type, e)}
                         ></input>
                         <span>
                           <p className={formatType(type)}>{type}</p>
