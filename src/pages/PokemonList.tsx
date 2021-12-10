@@ -4,9 +4,14 @@ import Pokemon from "../Models/pokemon"; // import des types
 import PokemonCard from "../components/PokemonCard";
 
 const PokemonList: FunctionComponent = () => {
-  const [pokemons, setPokemon] = useState<Pokemon[]>([]);
+  const [pokemons, setPokemons] = useState<Pokemon[]>([]);
   useEffect(() => {
-    setPokemon(POKEMON);
+    // setPokemons(POKEMON);
+    fetch("http://localhost:3001/pokemons")
+      .then((response) => response.json())
+      .then((pokemons) => {
+        setPokemons(pokemons);
+      });
   }, []);
 
   return (

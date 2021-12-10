@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useState, useEffect } from "react";
 import { RouteComponentProps, Link } from "react-router-dom";
 import Pokemon from "../Models/pokemon";
-import POKEMONS from "../Models/mock-pokemon";
+// import POKEMONS from "../Models/mock-pokemon";
 import formatDate from "../components/helpers/format-date";
 import formatType from "../components/helpers/format-type";
 
@@ -13,11 +13,18 @@ const PokemonDetail: FunctionComponent<RouteComponentProps<Params>> = ({
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
 
   useEffect(() => {
-    POKEMONS.forEach((pokemon) => {
-      if (match.params.id === pokemon.id.toString()) {
-        setPokemon(pokemon);
-      }
-    });
+    // POKEMONS.forEach((pokemon) => {
+    //   if (match.params.id === pokemon.id.toString()) {
+    //     setPokemon(pokemon);
+    //   }
+    // });
+    fetch(`http://localhost:3001/pokemons/${match.params.id}`)
+      .then((response) => response.json())
+      .then((pokemon) => {
+        console.log(pokemon);
+        // On test si le pokemon existe dans la BDD
+        if (pokemon.id) setPokemon(pokemon);
+      });
   }, [match.params.id]);
 
   return (
